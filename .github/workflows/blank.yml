@@ -37,7 +37,8 @@ jobs:
       
   comment:
     runs-on: ubuntu-latest
-    if: github.event.issue.pull_request && contains(github.event.comment.body, '/deploy')
+    if: github.event.issue.pull_request
+    steps:
       - name: Add comment to PR
         env:
           URL: ${{ github.event.issue.comments_url }}
